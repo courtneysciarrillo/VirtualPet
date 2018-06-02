@@ -9,60 +9,123 @@ namespace VirtualPet
     class VirtualPet
     {
         // Declare Fields
-        private string hunger;
-        private string thirst;
-        private string sleep;
+
+        private string name;
+        private int hunger;
+        private int thirst;
+        private int sleep;
+        private int potty;
+        private int boredom;
+        private int sickness;
 
         // Declare Properties
-        public string Hunger
+
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
+        public int Hunger
         {
             get { return this.hunger; }
             set { this.hunger = value; }
         }
 
-        public string Thirst
+        public int Thirst
         {
             get { return this.thirst; }
             set { this.thirst = value; }
         }
 
-        public string Sleep
+        public int Sleep
         {
             get { return this.sleep; }
             set { this.sleep = value; }
         }
 
-        VirtualPet()
+        public int Potty
+        {
+            get { return this.potty; }
+            set { this.potty = value; }
+        }
+
+        public int Boredom
+        {
+            get { return this.boredom; }
+            set { this.boredom = value; }
+        }
+
+        public int Sickness
+        {
+            get { return this.sickness; }
+            set { this.sickness = value; }
+        }
+
+        public VirtualPet()
         {
             // Default Constructor
         }
 
-        VirtualPet(int hunger, int thirst, int sleep)
+        public VirtualPet(string name, int hunger, int thirst, int sleep, int potty, int boredom, int sickness)
         {
             // Loaded Constructor
+            this.Name = name;
+            this.Hunger = hunger;
+            this.Thirst = thirst;
+            this.Sleep = sleep;
+            this.Potty = potty;
+            this.Boredom = boredom;
+            this.Sickness = sickness;
         }
+
+        // Declare Methods
 
         public void Eat()
         {
-
+            Hunger -= 25;
+            Thirst += 10;
         }
 
         public void Drink()
         {
-
+            Thirst -= 25;
+            Potty += 15;
         }
 
         public void TakeNap()
         {
+            Sleep -= 25;
+            Hunger += 10;
+        }
 
+        public void GoPotty()
+        {
+            Potty -= 25;
+            Boredom += 10;
+        }
+
+        public void Play()
+        {
+            Boredom -= 25;
+            Sleep += 15;
+        }
+
+        public void SeeDoctor()
+        {
+            Sickness -= 25;
         }
 
         public void Tick()
         {
-
+            Random r = new Random();
+            Hunger = Hunger + r.Next(0, 6);
+            Thirst = Thirst + r.Next(0, 6);
+            Sleep = Sleep + r.Next(0, 6);
+            Potty = Potty + r.Next(0, 6);
+            Boredom = Boredom + r.Next(0, 6);
+            Sickness = Sickness + r.Next(0, 2);
         }
 
-
-
-    }
-}
+    } // end VirtualPet class
+} // end VirtualPet namespace
