@@ -85,35 +85,65 @@ namespace VirtualPet
         {
             Hunger -= 25;
             Thirst += 10;
+
+            if (Hunger <= 0)
+            {
+                Hunger = 0;
+            }
         }
 
         public void Drink()
         {
             Thirst -= 25;
             Potty += 15;
+
+            if (Thirst <= 0)
+            {
+                Thirst = 0;
+            }
         }
 
         public void TakeNap()
         {
             Sleep -= 25;
             Hunger += 10;
+
+            if (Sleep <= 0)
+            {
+                Sleep = 0;
+            }
         }
 
         public void GoPotty()
         {
             Potty -= 25;
             Boredom += 10;
+
+            if (Potty <= 0)
+            {
+                Potty = 0;
+            }
         }
 
         public void Play()
         {
             Boredom -= 25;
             Sleep += 15;
+
+            if (Boredom <= 0)
+            {
+                Boredom = 0;
+            }
         }
 
         public void SeeDoctor()
         {
             Sickness -= 25;
+
+            if (Sickness <= 0)
+            {
+                Sickness = 0;
+            }
         }
 
         public void Tick()
